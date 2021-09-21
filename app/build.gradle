@@ -1,7 +1,11 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-}
+    id 'com.google.gms.google-services'
+
+    id 'kotlin-kapt'
+    id 'com.google.secrets_gradle_plugin' version '0.5'
+    }
 
 android {
     compileSdk 30
@@ -12,7 +16,8 @@ android {
         targetSdk 30
         versionCode 1
         versionName "1.0"
-
+        minSdkVersion 21
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -32,6 +37,10 @@ android {
     dataBinding{
         enabled = true
     }
+    viewBinding {
+        enabled = true
+    }
+
 }
 
 dependencies {
@@ -43,6 +52,8 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+    implementation 'com.google.firebase:firebase-auth:21.0.1'
+    implementation 'com.google.android.gms:play-services-auth:19.2.0'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
@@ -51,4 +62,44 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0' // circular image view
     implementation 'android.arch.navigation:navigation-fragment-ktx:1.0.0-rc02'// Navcontroller
     implementation 'android.arch.navigation:navigation-ui-ktx:1.0.0-rc02'// Navcontroller
+
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5' // youtube player
+
+    //Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.8.0'
+
+    //Gson
+    implementation 'com.squareup.retrofit2:converter-gson:2.8.0'
+    //Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.8'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1'
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
+    implementation 'com.squareup.picasso:picasso:2.5.0'
+    def nav_version = "2.1.0-alpha05"
+    implementation "androidx.navigation:navigation-fragment:$nav_version" // For Kotlin use navigation-fragment-ktx
+    implementation "androidx.navigation:navigation-ui:$nav_version" // For Kotlin use navigation-ui-ktx
+
+    def material_version = "1.1.0-alpha07"
+    implementation "com.google.android.material:material:$material_version"
+
+
+    def recyclerview_version = "1.1.0"
+    implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
+
+
+    def glide_version = "4.12.0"
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+
+    def cardview_version = "1.0.0"
+    implementation "androidx.cardview:cardview:$cardview_version"
+
+    implementation 'androidx.viewpager2:viewpager2:1.0.0' // View Pager
+
+    implementation platform('com.google.firebase:firebase-bom:28.4.0')
+
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+
+    implementation 'com.synnapps:carouselview:0.1.5' // carousel view
+
+    implementation 'me.relex:circleindicator:2.1.6'// circle indicator
 }

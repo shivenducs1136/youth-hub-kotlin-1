@@ -11,16 +11,20 @@
         <entry key="..\:/youthhub/youth-hub-kotlin/app/src/main/res/layout/activity_continue_with_google.xml" value="0.23229166666666667" />
         <entry key="..\:/youthhub/youth-hub-kotlin/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/youthhub/youth-hub-kotlin/app/src/main/res/layout/activity_splash_screen.xml" value="0.23229166666666667" />
+        <entry key="..\:/youthhub/youth-hub-kotlin/app/src/main/res/layout/continuewithgoogle.xml" value="0.1" />
+        <entry key="..\:/youthhub/youth-hub-kotlin/app/src/main/res/layout/fragment_continue__with__google.xml" value="0.264" />
         <entry key="..\:/youthhub/youth-hub-kotlin/app/src/main/res/layout/fragment_home.xml" value="0.23229166666666667" />
         <entry key="..\:/youthhub/youth-hub-kotlin/app/src/main/res/layout/fragment_playlist.xml" value="0.23229166666666667" />
         <entry key="..\:/youthhub/youth-hub-kotlin/app/src/main/res/layout/fragment_playlist_opened.xml" value="0.2" />
         <entry key="..\:/youthhub/youth-hub-kotlin/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
         <entry key="..\:/youthhub/youth-hub-kotlin/app/src/main/res/layout/fragment_seach.xml" value="0.264" />
         <entry key="..\:/youthhub/youth-hub-kotlin/app/src/main/res/layout/fragment_subcription.xml" value="0.23229166666666667" />
+        <entry key="..\:/youthhub/youth-hub-kotlin/app/src/main/res/layout/fragment_video_player.xml" value="0.264" />
+        <entry key="..\:/youthhub/youth-hub-kotlin/app/src/main/res/layout/item_view_pager.xml" value="0.23229166666666667" />
         <entry key="..\:/youthhub/youth-hub-kotlin/app/src/main/res/layout/playlist_recview.xml" value="0.4" />
         <entry key="..\:/youthhub/youth-hub-kotlin/app/src/main/res/layout/playlist_search_recview.xml" value="0.23177083333333334" />
         <entry key="..\:/youthhub/youth-hub-kotlin/app/src/main/res/layout/subscriptions_recview_elements.xml" value="0.23229166666666667" />
-        <entry key="..\:/youthhub/youth-hub-kotlin/app/src/main/res/layout/video_recview_item.xml" value="0.23229166666666667" />
+        <entry key="..\:/youthhub/youth-hub-kotlin/app/src/main/res/layout/video_recview_item.xml" value="0.264" />
         <entry key="..\:/youthhub/youth-hub-kotlin/app/src/main/res/menu/menu_item.xml" value="0.23229166666666667" />
       </map>
     </option>

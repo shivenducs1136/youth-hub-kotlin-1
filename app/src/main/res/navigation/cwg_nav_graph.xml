@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cwg_nav_graph"
+    app:startDestination="@id/continue_With_GoogleFragment">
+
+    <fragment
+        android:id="@+id/continue_With_GoogleFragment"
+        android:name="com.example.youthhub.ui.Continue_With_GoogleFragment"
+        android:label="Continue_With_GoogleFragment" />
+</navigation>
