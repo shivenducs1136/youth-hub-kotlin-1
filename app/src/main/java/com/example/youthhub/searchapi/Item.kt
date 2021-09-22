@@ -1,8 +1,8 @@
 package com.example.youthhub.searchapi
 
 data class Item(
-    val etag: String?,
-    val id: Id?,
-    val kind: String?,
-    val snippet: List<Snippet>?
+    val etag: String? = null,
+    val id: Id? = null,
+    val kind: String? = null,
+    val snippet: List<Snippet>? = null
 )

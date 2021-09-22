@@ -1,10 +1,10 @@
 package com.example.youthhub.searchapi
 
 data class searchapi(
-    val etag: String?,
-    val items: List<Item>?,
-    val kind: String?,
-    val nextPageToken: String?,
-    val pageInfo: PageInfo?,
-    val regionCode: String?
+    val etag: String? = null,
+    val items: List<Item>? = null,
+    val kind: String? = null,
+    val nextPageToken: String? = null,
+    val pageInfo: PageInfo? = null,
+    val regionCode: String? = null
 )

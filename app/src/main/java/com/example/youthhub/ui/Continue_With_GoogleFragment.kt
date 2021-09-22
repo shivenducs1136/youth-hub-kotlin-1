@@ -14,10 +14,12 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.youthhub.databinding.FragmentContinueWithGoogleBinding
 import com.example.youthhub.databinding.FragmentSeachBinding
 import android.R
+import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.tabs.TabLayoutMediator
 
 import me.relex.circleindicator.CircleIndicator3
-
-
+import me.relex.circleindicator.SnackbarBehavior
 
 
 class Continue_With_GoogleFragment : Fragment() {
@@ -42,46 +44,15 @@ class Continue_With_GoogleFragment : Fragment() {
         val adapter = ViewPagerAdapter(images)
         binding.doppelgangerViewPager.adapter = adapter
 
-        val indicator: CircleIndicator3 = view.findViewById(com.example.youthhub.R.id.bottom_dots_indicator)
-        indicator.setViewPager(binding.doppelgangerViewPager)
+        TabLayoutMediator(binding.tablayout,binding.doppelgangerViewPager, TabLayoutMediator.TabConfigurationStrategy({tab,position->
 
+        })).attach()
+        binding.doppelgangerViewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+//                Snackbar.make(view,"You are selected"+{position+1},Snackbar.LENGTH_SHORT).show()
+            }
+        })
     }
 
 }
-/*
-private lateinit var binding: FragmentContinueWithGoogleBinding
-var images = intArrayOf(
-    R.drawable.frame_1,
-    R.drawable.frame_2,
-    R.drawable.frame_3,
-)
-var imagesname = arrayOf(
-    "Frame 1",
-    "Frame 2",
-    "Frame 3"
-)*/
-//override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//    super.onViewCreated(view, savedInstanceState)
-//        binding.cwgCarouselView.pageCount = imagesname.size
-//
-//        binding.cwgCarouselView.setImageListener{
-//                position, imageview->
-//            imageview.setImageResource(images[position])
-//        }
-//        binding.cwgCarouselView.setImageClickListener { position ->
-//            Toast.makeText(context, imagesname[position], Toast.LENGTH_SHORT).show()
-//        }
-
-//}
-//    class DoppelgangerAdapter(activity: AppCompatActivity, val itemsCount: Int) :
-//        FragmentStateAdapter(activity) {
-//
-//
-//        override fun getItemCount(): Int {
-//            return itemsCount
-//        }
-//
-//        override fun createFragment(position: Int): Fragment {
-//            return DoppelgangerFragment.getInstance(position)
-//        }
-//    }

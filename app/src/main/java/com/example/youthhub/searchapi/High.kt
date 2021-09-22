@@ -1,7 +1,7 @@
 package com.example.youthhub.searchapi
 
 data class High(
-    val height: Int?,
-    val url: String?,
-    val width: Int?
+    val height: Int? = null,
+    val url: String? = null,
+    val width: Int? = null
 )

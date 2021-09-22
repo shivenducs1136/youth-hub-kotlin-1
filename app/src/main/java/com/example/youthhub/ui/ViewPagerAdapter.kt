@@ -15,10 +15,15 @@ import android.widget.TextView
 
 
 
-class ViewPagerAdapter (
-    val images : List<Int>
-) : RecyclerView.Adapter<ViewPagerAdapter.ViewPagerViewHolder>()
+class ViewPagerAdapter (val images : List<Int>) : RecyclerView.Adapter<ViewPagerAdapter.ViewPagerViewHolder>()
     {
+        var color_icon_matrix = arrayOf(
+            intArrayOf(android.R.color.holo_red_dark,R.drawable.ic_input_add),
+            intArrayOf(android.R.color.holo_red_dark,R.drawable.ic_input_add),
+            intArrayOf(android.R.color.holo_red_dark,R.drawable.ic_input_add),
+            intArrayOf(android.R.color.holo_red_dark,R.drawable.ic_input_add),
+
+            )
 
     inner class ViewPagerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
@@ -30,6 +35,10 @@ class ViewPagerAdapter (
         override fun onBindViewHolder(holder: ViewPagerViewHolder, position: Int) {
             val curImage = images[position]
             holder.itemView.findViewById<ImageView>(com.example.youthhub.R.id.ivImage).setImageResource(curImage)
+
+            if(position == 1){
+
+            }
         }
 
         override fun getItemCount(): Int {

@@ -1,12 +1,12 @@
 package com.example.youthhub.searchapi
 
 data class Snippet(
-    val channelId: String?,
-    val channelTitle: String?,
-    val description: String?,
-    val liveBroadcastContent: String?,
-    val publishTime: String?,
-    val publishedAt: String?,
-    val thumbnails: Thumbnails?,
-    val title: String?
+    val channelId: String? = null,
+    val channelTitle: String? = null,
+    val description: String? = null,
+    val liveBroadcastContent: String? = null,
+    val publishTime: String? = null,
+    val publishedAt: String? = null,
+    val thumbnails: Thumbnails? = null,
+    val title: String? = null
 )

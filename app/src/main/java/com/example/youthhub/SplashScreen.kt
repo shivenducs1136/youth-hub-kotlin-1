@@ -17,15 +17,15 @@ class SplashScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
-        /* Enabled When Sigin Work is done
-        Handler().postDelayed({
-            val i = Intent(this, MainActivity::class.java)
-            startActivity(i)
-            navHostFragment.visibility = View.GONE
-            finish()
-        }, 3000)
+//         Enabled When Sigin Work is done
+//        Handler().postDelayed({
+//            val i = Intent(this, MainActivity::class.java)
+//            startActivity(i)
+////            navHostFragment.visibility = View.GONE
+//            finish()
+//        }, 3000)
 
 
-        */
+
     }
 }
