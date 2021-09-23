@@ -1,4 +1,4 @@
-package com.dsckiet.youthhub.Adapters
+package com.example.youthhub.Adapters
 
 import android.content.ClipData
 import android.content.Context
@@ -9,22 +9,19 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.youthhub.R
-import com.example.youthhub.searchapi.Default
-import com.example.youthhub.searchapi.Item
+import com.dsckiet.youthhub.R
 import com.example.youthhub.searchapi.Snippet
 import com.squareup.picasso.Picasso
 
-class SearchAdapter (private val context: Context): RecyclerView.Adapter<com.dsckiet.youthhub.Adapters.SearchAdapter.SearchViewHolder>() {
+class SearchAdapter (private val context: Context): RecyclerView.Adapter<com.example.youthhub.Adapters.SearchAdapter.SearchViewHolder>() {
     private var collectid:List<Snippet> = emptyList()
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): _root_ide_package_.com.dsckiet.youthhub.Adapters.SearchAdapter.SearchViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): com.example.youthhub.Adapters.SearchAdapter.SearchViewHolder {
         val v= LayoutInflater.from(parent.context).inflate( R.layout.video_recview_item, parent, false)
-        return _root_ide_package_.com.dsckiet.youthhub.Adapters.SearchAdapter.SearchViewHolder(v)
+        return com.example.youthhub.Adapters.SearchAdapter.SearchViewHolder(v)
     }
 
-    override fun onBindViewHolder(holder: _root_ide_package_.com.dsckiet.youthhub.Adapters.SearchAdapter.SearchViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: com.example.youthhub.Adapters.SearchAdapter.SearchViewHolder, position: Int) {
         val collectid= collectid[position]
 //        if(collectid?.country_id == 1){
 

@@ -64,16 +64,16 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Progress"
-                                android:fontFamily="@font/poppins_semibold"
-                                android:textColor="@color/black"
-                                android:textSize="15sp"
-                                android:layout_marginTop="10dp"
                                 android:layout_marginLeft="10dp"
-                                />
+                                android:layout_marginTop="10dp"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Progress"
+                                android:textColor="@color/black"
+                                android:textSize="15sp" />
 
 
                         </LinearLayout>

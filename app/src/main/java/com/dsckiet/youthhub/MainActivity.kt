@@ -2,20 +2,10 @@ package com.dsckiet.youthhub
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import androidx.fragment.app.FragmentTransaction
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupWithNavController
-import com.example.youthhub.databinding.ActivityMainBinding
-import com.example.youthhub.ui.HomeFragment
-import com.example.youthhub.ui.ProfileFragment
-import com.example.youthhub.ui.SeachFragment
-import com.example.youthhub.ui.SubrciptionFragment
+import com.dsckiet.youthhub.R
 import com.gauravk.bubblenavigation.BubbleNavigationLinearView
-import com.gauravk.bubblenavigation.listener.BubbleNavigationChangeListener
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package com.dsckiet.youthhub.ViewModel
+package com.example.youthhub.ViewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

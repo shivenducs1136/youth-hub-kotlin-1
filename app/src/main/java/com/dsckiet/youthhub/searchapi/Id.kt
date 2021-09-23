@@ -1,4 +1,4 @@
-package com.dsckiet.youthhub.searchapi
+package com.example.youthhub.searchapi
 
 data class Id(
     val kind: String? = null,

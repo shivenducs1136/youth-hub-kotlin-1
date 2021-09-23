@@ -1,4 +1,4 @@
-package com.dsckiet.youthhub.ViewModel
+package com.example.youthhub.ViewModel
 
 import android.util.Log
 import androidx.lifecycle.LiveData

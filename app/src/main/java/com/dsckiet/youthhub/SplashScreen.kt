@@ -9,8 +9,7 @@ import android.widget.RelativeLayout
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import com.example.youthhub.R.id.fragmentContainerView
-import com.example.youthhub.R.id.splash_logo_youthhub
+import com.dsckiet.youthhub.R
 
 class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

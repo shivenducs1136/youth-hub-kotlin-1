@@ -1,4 +1,4 @@
-package com.dsckiet.youthhub.ApiRequest
+package com.example.youthhub.ApiRequest
 
 import com.example.youthhub.searchapi.Item
 import retrofit2.Response

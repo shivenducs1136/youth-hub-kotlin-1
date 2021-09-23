@@ -1,4 +1,4 @@
-package com.dsckiet.youthhub.Repo
+package com.example.youthhub.Repo
 
 import android.content.Context
 import androidx.lifecycle.MutableLiveData

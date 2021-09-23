@@ -1,4 +1,4 @@
-package com.dsckiet.youthhub.ui
+package com.example.youthhub.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -14,19 +14,16 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.dsckiet.youthhub.Adapters.SearchAdapter
-import com.example.youthhub.R
+import com.dsckiet.youthhub.R
+import com.dsckiet.youthhub.databinding.FragmentSeachBinding
 import com.example.youthhub.Repo.Repository
 import com.example.youthhub.ViewModel.SearchViewModel
 import com.example.youthhub.ViewModel.SearchViewModelFactory
-import com.example.youthhub.databinding.FragmentPlaylistBinding
-import com.example.youthhub.databinding.FragmentSeachBinding
-
 
 class SeachFragment : Fragment() {
 
-    private val SearchAdapter: _root_ide_package_.com.dsckiet.youthhub.Adapters.SearchAdapter by lazy{
-        _root_ide_package_.com.dsckiet.youthhub.Adapters.SearchAdapter(
+    private val SearchAdapter: com.example.youthhub.Adapters.SearchAdapter by lazy{
+        com.example.youthhub.Adapters.SearchAdapter(
             requireContext()
         )
     }
@@ -38,7 +35,7 @@ class SeachFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_seach,container,false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_seach,container,false)
         return binding.root
     }
 

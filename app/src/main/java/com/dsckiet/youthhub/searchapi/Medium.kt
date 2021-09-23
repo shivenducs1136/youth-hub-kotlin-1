@@ -1,4 +1,4 @@
-package com.dsckiet.youthhub.searchapi
+package com.example.youthhub.searchapi
 
 data class Medium(
     val height: Int? = null,

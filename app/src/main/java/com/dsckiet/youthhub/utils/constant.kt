@@ -1,4 +1,4 @@
-package com.dsckiet.youthhub.utils
+package com.example.youthhub.utils
 
 class constant {
     companion object{

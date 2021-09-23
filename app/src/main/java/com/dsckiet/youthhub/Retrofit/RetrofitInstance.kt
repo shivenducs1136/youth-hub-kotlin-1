@@ -1,4 +1,4 @@
-package com.dsckiet.youthhub.Retrofit
+package com.example.youthhub.Retrofit
 
 import com.example.youthhub.ApiRequest.SearchApiRequest
 import com.example.youthhub.utils.constant.Companion.BASE_URL
