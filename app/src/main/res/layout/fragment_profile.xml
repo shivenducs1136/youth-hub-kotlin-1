@@ -70,14 +70,21 @@
                         android:background="@drawable/ic_profilerectangle"
                         >
 
-                        <de.hdodenhof.circleimageview.CircleImageView
+                        <com.google.android.material.card.MaterialCardView
+                            app:cardCornerRadius="53dp"
                             android:id="@+id/profile_dp"
                             android:layout_width="106dp"
                             android:layout_height="106dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/profilepic" />
+                            >
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/profilepic"
+                                />
+                        </com.google.android.material.card.MaterialCardView>
 
                         <TextView
                             android:id="@+id/user_name"
@@ -99,7 +106,7 @@
                             android:layout_below="@+id/user_name"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="0dp"
-                            android:fontFamily="@font/poppins_light"
+                            android:fontFamily="@font/poppins_bold"
                             android:text="johndebra@gmail.com"
                             android:textColor="@color/black"
                             android:textSize="20sp" />

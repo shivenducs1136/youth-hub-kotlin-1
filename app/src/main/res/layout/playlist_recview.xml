@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -86,10 +87,10 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="10dp"
                                 android:fontFamily="@font/open_sans_bold"
                                 android:text="Basics Of Designing"
                                 android:textColor="@color/black"
-                                android:layout_marginLeft="10dp"
                                 android:textSize="20sp" />
 
                         </LinearLayout>
@@ -100,8 +101,9 @@
                             android:layout_weight="1"
                             android:orientation="horizontal">
 
-                            <de.hdodenhof.circleimageview.CircleImageView
-                                android:layout_width="30dp"
+                            <com.google.android.material.card.MaterialCardView
+                                android:layout_width="40dp"
+                                app:cardCornerRadius="20dp"
                                 android:layout_height="40dp"
                                 android:src="@drawable/profilepic"
                                 android:layout_marginLeft="20dp" />

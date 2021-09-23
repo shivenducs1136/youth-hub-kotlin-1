@@ -61,7 +61,9 @@
                 android:layout_below="@+id/search_search_box"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                tools:listitem="@layout/video_recview_item" />
+                tools:listitem="@layout/video_recview_item"
+                android:id="@+id/seach_recview"
+                />
         </RelativeLayout>
 
     </FrameLayout>
