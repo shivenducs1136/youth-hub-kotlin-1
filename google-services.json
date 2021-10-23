@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "899736584107",
+    "project_id": "youthhub-324818",
+    "storage_bucket": "youthhub-324818.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:899736584107:android:3e39f5a0bc470748121cee",
+        "android_client_info": {
+          "package_name": "com.dsckiet.youthhub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "899736584107-67d6hbtbvr9ciggkgtjka5849uaetn8n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCX8JpQ_OHfiqyVdBm78l0SeGaeX-c_rjo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "899736584107-67d6hbtbvr9ciggkgtjka5849uaetn8n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
