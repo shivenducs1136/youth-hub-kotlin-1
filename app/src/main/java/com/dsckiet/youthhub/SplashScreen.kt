@@ -4,24 +4,26 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.view.View
-import android.widget.RelativeLayout
-import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import com.dsckiet.youthhub.R
+import com.google.firebase.auth.FirebaseAuth
+
 
 class SplashScreen : AppCompatActivity() {
+
+    private lateinit var firebaseAuth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
+        firebaseAuth = FirebaseAuth.getInstance()
 
 //         Enabled When Sigin Work is done
         Handler().postDelayed({
             val i = Intent(this, MainActivity::class.java)
             startActivity(i)
+            if(firebaseAuth.currentUser != null)
+                finish()
 //            navHostFragment.visibility = View.GONE
-            finish()
+
         }, 3000)
 
 
