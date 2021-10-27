@@ -2,15 +2,6 @@
     <!-- Base application theme. -->
     <style name="Theme.YouthHub" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="android:forceDarkAllowed" tools:targetApi="q"> false </item>
-
-        <item name="colorPrimary">#9189DF</item>
-        <item name="colorPrimaryVariant">@color/white</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">#9189DF</item>
-        <item name="colorSecondaryVariant">@color/white</item>
-        <item name="colorOnSecondary">@color/white</item>
         <item name="colorPrimary">#9189DF</item>
         <item name="colorPrimaryVariant">#9189DF</item>
         <item name="colorOnPrimary">#9189DF</item>
