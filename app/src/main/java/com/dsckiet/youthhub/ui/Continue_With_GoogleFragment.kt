@@ -7,20 +7,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.databinding.DataBindingUtil
-
-import androidx.viewpager2.widget.ViewPager2
+import com.dsckiet.youthhub.MainActivity
 import com.dsckiet.youthhub.R
-import com.dsckiet.youthhub.databinding.FragmentContinueWithGoogleBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import androidx.databinding.DataBindingUtil
+
+import androidx.viewpager2.widget.ViewPager2
+import com.dsckiet.youthhub.databinding.FragmentContinueWithGoogleBinding
+import com.google.android.material.tabs.TabLayoutMediator
+
 
 
 class Continue_With_GoogleFragment : Fragment() {
@@ -45,6 +47,7 @@ class Continue_With_GoogleFragment : Fragment() {
             .requestIdToken("899736584107-67d6hbtbvr9ciggkgtjka5849uaetn8n.apps.googleusercontent.com")
             .requestEmail().build()
         googleSignInClient = GoogleSignIn.getClient(requireActivity(),googleSignInOptions)
+        binding = DataBindingUtil.inflate(inflater, com.dsckiet.youthhub.R.layout.fragment_continue__with__google,container,false)
         return binding.root
     }
 
@@ -98,6 +101,9 @@ class Continue_With_GoogleFragment : Fragment() {
                                 OnCompleteListener<AuthResult> { task ->
                                     if (task.isSuccessful) {
                                         displayToast("Firebase Auth Successful")
+                                        val i = Intent(requireContext(),MainActivity::class.java)
+                                        startActivity(i)
+                                        requireActivity().finish()
                                     } else {
                                         displayToast("Firebase Auth Failed! " + (task.exception?.message))
                                     }
