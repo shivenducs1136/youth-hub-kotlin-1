@@ -43,41 +43,39 @@ class SeachFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.searchBackBtn.setOnClickListener{
-
             findNavController().navigate(R.id.action_seachFragment_to_homeFragment)
-
         }
-        val searchrecyclerView: RecyclerView = view.findViewById(R.id.seach_recview)
-        val repository = Repository(this.requireContext())
-        val vmf = SearchViewModelFactory(repository)
-        viewModel = ViewModelProvider(this,vmf).get(SearchViewModel::class.java)
+//        val searchrecyclerView: RecyclerView = view.findViewById(R.id.seach_recview)
+//        val repository = Repository(this.requireContext())
+//        val vmf = SearchViewModelFactory(repository)
+//        viewModel = ViewModelProvider(this,vmf).get(SearchViewModel::class.java)
 
-        binding.searchView.setOnQueryTextListener(
-            object : SearchView.OnQueryTextListener{
-                override fun onQueryTextSubmit(searchit: String?): Boolean {
-                    viewModel.getSearchItem("snippet",searchit.toString())
+//        binding.searchView.setOnQueryTextListener(
+//            object : SearchView.OnQueryTextListener{
+//                override fun onQueryTextSubmit(searchit: String?): Boolean {
+//                    viewModel.getSearchItem("snippet",searchit.toString())
+//
+//                    return false
+//                }
+//                override fun onQueryTextChange(newText: String?): Boolean {
+//                    viewModel.getSearchItem("snippet",newText.toString())
+//                    return false
+//                }
+//            }
+//        )
+//
+//        searchrecyclerView.layoutManager = LinearLayoutManager(requireContext())
+//        searchrecyclerView.adapter = SearchAdapter
 
-                    return false
-                }
-                override fun onQueryTextChange(newText: String?): Boolean {
-                    viewModel.getSearchItem("snippet",newText.toString())
-                    return false
-                }
-            }
-        )
+//        viewModel.searched.observe(viewLifecycleOwner, Observer {
 
-        searchrecyclerView.layoutManager = LinearLayoutManager(requireContext())
-        searchrecyclerView.adapter = SearchAdapter
+//            if (it)
+//                SearchAdapter.citysetStateWiseTracker(it)
 
-        viewModel.searched.observe(viewLifecycleOwner, Observer {
-
-            if (it.isSuccessful)
-                SearchAdapter.citysetStateWiseTracker(it.body()?.snippet!!)
-
-            Log.d("BOLTy","success"+it.toString())
+//            Log.d("BOLTy","success"+it.toString())
 
 
-        })
+//        })
 
 
     }

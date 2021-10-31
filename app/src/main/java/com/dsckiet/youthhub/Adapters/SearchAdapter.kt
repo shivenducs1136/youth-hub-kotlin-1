@@ -1,8 +1,6 @@
 package com.example.youthhub.Adapters
 
-import android.content.ClipData
 import android.content.Context
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,11 +9,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.dsckiet.youthhub.R
-import com.example.youthhub.searchapi.Snippet
+import com.dsckiet.youthhub.model.Item
 import com.squareup.picasso.Picasso
 
 class SearchAdapter (private val context: Context): RecyclerView.Adapter<com.example.youthhub.Adapters.SearchAdapter.SearchViewHolder>() {
-    private var collectid:List<Snippet> = emptyList()
+    private var collectid:List<Item.Snippet> = emptyList()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): com.example.youthhub.Adapters.SearchAdapter.SearchViewHolder {
         val v= LayoutInflater.from(parent.context).inflate( R.layout.video_recview_item, parent, false)
         return com.example.youthhub.Adapters.SearchAdapter.SearchViewHolder(v)
@@ -52,7 +50,7 @@ class SearchAdapter (private val context: Context): RecyclerView.Adapter<com.exa
         return collectid.size
     }
 
-    fun citysetStateWiseTracker(list: List<Snippet>){
+    fun citysetStateWiseTracker(list: List<Item.Snippet>){
         this.collectid=list
         notifyDataSetChanged()
     }
