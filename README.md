@@ -1,5 +1,5 @@
 <p align="left">
-	<img width="240" src="https://raw.githubusercontent.com/dsckiet/resources/master/dsckiet-logo.png" />
+	<img width="240" src="https://doc-00-ak-docs.googleusercontent.com/docs/securesc/udi27sc62g30ubel3e0o7g82d0v74a1r/kgn0mqbrvot07287f7b7qjod3cpra0b7/1635692325000/15761484733540083880/17335258072380119808/1Q-jMna73t3OcGULw_TAi2M786kinOZNZ?e=view&authuser=0&nonce=q1t8e2kifrnvk&user=17335258072380119808&hash=povo86hdeag9g81cmj24mm7hi0r4kuno" />
 	<h2 align="left"> YouthHub </h2>
 	<h4 align="left"> A Youtube based application just for educational purposes. <h4>
 </p>
