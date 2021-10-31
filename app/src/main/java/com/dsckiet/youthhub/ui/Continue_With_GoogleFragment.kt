@@ -18,7 +18,6 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import androidx.databinding.DataBindingUtil
-
 import androidx.viewpager2.widget.ViewPager2
 import com.dsckiet.youthhub.databinding.FragmentContinueWithGoogleBinding
 import com.google.android.material.tabs.TabLayoutMediator
