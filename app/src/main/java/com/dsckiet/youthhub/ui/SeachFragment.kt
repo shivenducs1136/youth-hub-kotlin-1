@@ -22,11 +22,6 @@ import com.example.youthhub.ViewModel.SearchViewModelFactory
 
 class SeachFragment : Fragment() {
 
-    private val SearchAdapter: com.example.youthhub.Adapters.SearchAdapter by lazy{
-        com.example.youthhub.Adapters.SearchAdapter(
-            requireContext()
-        )
-    }
     private lateinit var binding: FragmentSeachBinding
     private lateinit var viewModel: SearchViewModel
 

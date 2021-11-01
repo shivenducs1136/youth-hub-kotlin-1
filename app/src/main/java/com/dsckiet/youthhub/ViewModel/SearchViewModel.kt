@@ -13,18 +13,18 @@ import retrofit2.Response
 class SearchViewModel (private val repository: Repository): ViewModel() {
 
     var cityshowProgress: LiveData<Boolean>
-    var searched: MutableLiveData<List<Item.Snippet>>
+    var searched: MutableLiveData<List<Item>>
 
     init {
         this.cityshowProgress=repository.cityshowprogress
         this.searched= MutableLiveData()
     }
 
-    fun getSearchItem(part:String,searchit:String){
-        viewModelScope.launch {
-            val SearchRes=repository.getSearchItem(part,searchit)
-            searched.value=SearchRes
-            Log.d("Searched",SearchRes.toString())
-        }
-    }
+//    fun getSearchItem(part:String,searchit:String){
+//        viewModelScope.launch {
+//            val SearchRes=repository.getSearchItem(part,searchit)
+//            searched.value=SearchRes
+//            Log.d("Searched",SearchRes.toString())
+//        }
+//    }
 }

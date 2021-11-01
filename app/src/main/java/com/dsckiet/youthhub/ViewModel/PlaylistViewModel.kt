@@ -6,6 +6,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dsckiet.youthhub.model.Item
+import com.dsckiet.youthhub.model.Playlist
+import com.dsckiet.youthhub.model.PlaylistDataClass
+import com.dsckiet.youthhub.model.Snippet
 import com.example.youthhub.Repo.Repository
 import kotlinx.coroutines.launch
 import retrofit2.Response
@@ -13,7 +16,7 @@ import retrofit2.Response
 class PlaylistViewModel (private val repository: Repository): ViewModel() {
 
     var PlaylistshowProgress: LiveData<Boolean>
-    var playlist: MutableLiveData<List<Item.Snippet>>
+    var playlist: MutableLiveData<Response<Playlist>>
 
     init {
         this.PlaylistshowProgress=repository.cityshowprogress
@@ -22,9 +25,9 @@ class PlaylistViewModel (private val repository: Repository): ViewModel() {
 
     fun getPlaylist(part:String,id:String){
         viewModelScope.launch {
-            val SearchRes=repository.getSearchItem(part,id)
+            val SearchRes=repository.getPlaylistItem(part,id)
             playlist.value=SearchRes
-            Log.d("Searched",SearchRes.toString())
+            Log.e("Searched",SearchRes.toString())
         }
     }
 }
