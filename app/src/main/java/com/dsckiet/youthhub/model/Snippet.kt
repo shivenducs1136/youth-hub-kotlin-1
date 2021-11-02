@@ -7,5 +7,6 @@ data class Snippet(
     val localized: Localized?,
     val publishedAt: String?,
     val thumbnails: Thumbnails?,
-    val title: String?
+    val title: String?,
+    val resourceId: ResourceId
 )

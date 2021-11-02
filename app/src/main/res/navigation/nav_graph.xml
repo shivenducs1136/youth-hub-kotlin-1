@@ -43,5 +43,17 @@
             android:id="@+id/action_playlistFragment_to_homeFragment"
             app:destination="@id/homeFragment"
             app:popUpTo="@id/homeFragment" />
+        <action
+            android:id="@+id/action_playlistFragment_to_playlistOpenedFragment"
+            app:destination="@id/playlistOpenedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/playlistOpenedFragment"
+        android:name="com.example.youthhub.ui.PlaylistOpenedFragment"
+        android:label="PlaylistOpenedFragment" >
+        <action
+            android:id="@+id/action_playlistOpenedFragment_to_playlistFragment"
+            app:destination="@id/playlistFragment"
+            app:popUpTo="@id/playlistFragment" />
     </fragment>
 </navigation>

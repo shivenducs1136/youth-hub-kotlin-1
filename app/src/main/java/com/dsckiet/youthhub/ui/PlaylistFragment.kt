@@ -44,7 +44,20 @@ class PlaylistFragment : Fragment() {
         }
 //        recyclerView= binding.playlistRecview
         binding.idkaid.visibility = View.GONE
+        binding.idkaid.setOnClickListener {
+
+            playlistclicked()
+
+        }
         viewplaylistvialink()
+
+    }
+
+    private fun playlistclicked() {
+
+        val bundle = Bundle()
+        bundle.putString("playlistid",id)
+        findNavController().navigate(R.id.action_playlistFragment_to_playlistOpenedFragment,bundle)
 
     }
 
@@ -82,6 +95,14 @@ class PlaylistFragment : Fragment() {
                         }
 
                     })
+                    playlistViewModel.getPlaylistItem("snippet", id)
+                    playlistViewModel.playlistitem.observe(viewLifecycleOwner, Observer {
+                        if (it.isSuccessful){
+                            Log.e("Playlistitem",it.body()?.pageInfo?.totalResults.toString())
+                            binding.id.videosInPlaylist.text = it.body()?.pageInfo?.totalResults.toString() + " videos"
+                        }
+                    })
+
                     return false
                 }
                 override fun onQueryTextChange(newText: String?): Boolean {
