@@ -6,12 +6,16 @@
 
     </data>
 
-    <RelativeLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="273dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        app:cardCornerRadius="20dp"
+        android:layout_marginBottom="10dp"
+        >
+
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -30,21 +34,23 @@
                     android:layout_weight="2">
 
                     <ImageView
+                        android:id="@+id/playlist_thumbnail"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
                         android:src="@drawable/sample_img"
-                        android:id="@+id/playlist_thumbnail"
                         />
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true">
+                        android:layout_alignParentRight="true"
+                        >
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            android:alpha="0.8"
                             android:scaleType="centerCrop"
                             android:src="@drawable/grey_rectangle_2" />
 
@@ -56,14 +62,15 @@
                             android:id="@+id/playlist_icon" />
 
                         <TextView
+                            android:id="@+id/videos_in_playlist"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="6 Videos"
-                            android:fontFamily="@font/poppins_semibold"
-                            android:textColor="@color/white"
                             android:layout_below="@+id/playlist_icon"
+                            android:layout_centerHorizontal="true"
                             android:layout_marginTop="70dp"
-                            android:layout_centerHorizontal="true" />
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="6 Videos"
+                            android:textColor="@color/white" />
                     </RelativeLayout>
 
                 </RelativeLayout>
@@ -76,8 +83,9 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:paddingBottom="10dp"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:layout_marginBottom="10dp"
+                        >
 
                         <LinearLayout
                             android:layout_marginTop="5dp"
@@ -91,6 +99,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginLeft="10dp"
+                                android:autoSizeTextType="uniform"
+                                android:layout_marginRight="10dp"
                                 android:fontFamily="@font/open_sans_bold"
                                 android:text="Basics Of Designing"
                                 android:textColor="@color/black"
@@ -105,11 +115,12 @@
                             android:orientation="horizontal">
 
                             <com.google.android.material.card.MaterialCardView
-                                android:layout_width="40dp"
-                                app:cardCornerRadius="20dp"
-                                android:layout_height="40dp"
+                                android:layout_width="36dp"
+                                app:cardCornerRadius="18dp"
+                                android:layout_height="36dp"
                                 android:src="@drawable/profilepic"
-                                android:layout_marginLeft="20dp" >
+                                android:layout_marginLeft="16dp"
+                                >
 
                                 <ImageView
                                     android:layout_width="match_parent"
@@ -123,10 +134,13 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Developers"
+                                android:layout_marginRight="10dp"
                                 android:id="@+id/playlist_channel_name"
                                 android:layout_gravity="center_vertical"
                                 android:fontFamily="@font/open_sans_bold"
                                 android:textColor="@color/black"
+                                android:maxLines="1"
+                                android:autoSizeTextType="uniform"
                                 android:layout_marginLeft="10dp"
                                 android:textSize="16sp" />
 
@@ -151,5 +165,5 @@
 
         </RelativeLayout>
 
-    </RelativeLayout>
+    </androidx.cardview.widget.CardView>
 </layout>
