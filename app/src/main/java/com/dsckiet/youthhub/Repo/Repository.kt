@@ -19,8 +19,8 @@ class Repository(var context: Context) {
     suspend fun getPlaylist(part: String,id:String) :Response<Playlist>{
         return RetrofitInstance.api.getPlaylist(part,id)
     }
-    suspend fun getPlaylistItem(part: String,playlistid:String) :Response<PlaylistItem>{
-        return RetrofitInstance.api.getPlaylistItem(part,playlistid)
+    suspend fun getPlaylistItem(part: String,pageToken:String,playlistid:String) :Response<PlaylistItem>{
+        return RetrofitInstance.api.getPlaylistItem(part,pageToken,playlistid)
     }
     suspend fun getVideoinfo(part: String,id:String) :Response<VideoDataClass>{
         return RetrofitInstance.api.getVideoinfo(part,id)

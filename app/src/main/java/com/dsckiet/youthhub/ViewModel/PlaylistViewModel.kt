@@ -33,9 +33,9 @@ class PlaylistViewModel (private val repository: Repository): ViewModel() {
             Log.e("Searched",SearchRes.toString())
         }
     }
-    fun getPlaylistItem(part:String,id:String){
+    fun getPlaylistItem(part:String,pageToken:String,id:String){
         viewModelScope.launch {
-            val ItemSearchRes=repository.getPlaylistItem(part,id)
+            val ItemSearchRes=repository.getPlaylistItem(part,pageToken,id)
             playlistitem.value=ItemSearchRes
             Log.e("Playlist item Searched",ItemSearchRes.toString())
         }

@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.PlaylistOpenedFragment">
-        <ScrollView
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             >
@@ -144,7 +144,7 @@
                     tools:listitem="@layout/video_recview_item" />
 
             </RelativeLayout>
-        </ScrollView>
+        </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -173,8 +173,14 @@
                         android:layout_centerInParent="true"
                         android:src="@drawable/ic_backbtn" />
                 </RelativeLayout>
-
             </androidx.cardview.widget.CardView>
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:id="@+id/playlist_opened_progressbar"
+                />
         </RelativeLayout>
 
     </FrameLayout>
