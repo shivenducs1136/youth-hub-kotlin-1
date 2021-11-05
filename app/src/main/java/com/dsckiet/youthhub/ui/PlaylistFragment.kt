@@ -1,5 +1,6 @@
 package com.example.youthhub.ui
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -44,20 +45,22 @@ class PlaylistFragment : Fragment() {
         }
 //        recyclerView= binding.playlistRecview
         binding.idkaid.visibility = View.GONE
+        viewplaylistvialink()
         binding.idkaid.setOnClickListener {
 
             playlistclicked()
 
         }
-        viewplaylistvialink()
 
     }
 
     private fun playlistclicked() {
-
-        val bundle = Bundle()
-        bundle.putString("playlistid",id)
-        findNavController().navigate(R.id.action_playlistFragment_to_playlistOpenedFragment,bundle)
+       val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
+        with (sharedPref.edit()) {
+            putString("PlaylistId", id)
+            apply()
+        }
+        findNavController().navigate(R.id.action_playlistFragment_to_playlistOpenedFragment)
 
     }
 
@@ -91,11 +94,14 @@ class PlaylistFragment : Fragment() {
                                 .into(binding.id.playlistThumbnail)
                             binding.id.playlistTitle.text = it.body()?.items?.get(0)?.snippet?.title
                             binding.id.playlistChannelName.text = it.body()?.items?.get(0)?.snippet?.channelTitle
-                            binding.id.videosInPlaylist.text = it.body()?.items?.size.toString() + " videos"
+                            playlistViewModel.getPlaylistItem("snippet",id,"")
+                            playlistViewModel.playlistitem.observe(viewLifecycleOwner, Observer {
+                                binding.id.videosInPlaylist.text = it.body()?.pageInfo?.totalResults.toString() + " videos"
+                            })
                         }
 
                     })
-                    playlistViewModel.getPlaylistItem("snippet", id)
+                    playlistViewModel.getPlaylistItem("snippet","",id)
                     playlistViewModel.playlistitem.observe(viewLifecycleOwner, Observer {
                         if (it.isSuccessful){
                             Log.e("Playlistitem",it.body()?.pageInfo?.totalResults.toString())

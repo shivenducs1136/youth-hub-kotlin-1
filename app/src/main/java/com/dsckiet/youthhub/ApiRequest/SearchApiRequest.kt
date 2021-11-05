@@ -2,6 +2,7 @@ package com.example.youthhub.ApiRequest
 
 import com.dsckiet.youthhub.model.Playlist
 import com.dsckiet.youthhub.model.PlaylistItem
+import com.dsckiet.youthhub.videomodel.Item
 import com.dsckiet.youthhub.videomodel.VideoDataClass
 import retrofit2.Response
 import retrofit2.http.GET
@@ -23,6 +24,7 @@ interface SearchApiRequest {
     suspend fun getPlaylistItem(
         @Query("part")part : String,
         @Query("playlistId") id:String,
+        @Query("pageToken") pageToken:String,
         @Query("key") key:String = userapi
     ) : Response<PlaylistItem>
 
