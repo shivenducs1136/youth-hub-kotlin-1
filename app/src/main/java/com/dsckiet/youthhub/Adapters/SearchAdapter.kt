@@ -12,8 +12,7 @@ import com.dsckiet.youthhub.R
 import com.dsckiet.youthhub.model.Item
 import com.squareup.picasso.Picasso
 
-class SearchAdapter  {}
-//    private var collectid:List<Item> = emptyList()
+class SearchAdapter  {}//    private var collectid:List<Item> = emptyList()
 //    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): com.example.youthhub.Adapters.SearchAdapter.SearchViewHolder {
 //        val v= LayoutInflater.from(parent.context).inflate( R.layout.video_recview_item, parent, false)
 //        return com.example.youthhub.Adapters.SearchAdapter.SearchViewHolder(v)
