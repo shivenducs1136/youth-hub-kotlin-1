@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'com.google.gms.google-services'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -98,5 +99,16 @@ dependencies {
     implementation 'me.relex:circleindicator:2.1.6'// circle indicator
 
     implementation platform('com.google.firebase:firebase-bom:28.4.0')
-    implementation 'com.google.android.gms:play-services-auth:19.2.0'//Google Play Services
+    implementation 'com.google.android.gms:play-services-auth:19.2.0'//Google Play Services4
+
+    // Room Componenets
+    implementation "androidx.room:room-ktx:2.3.0"
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    kapt "androidx.room:room-compiler:2.3.0"
+    androidTestImplementation "androidx.room:room-testing:2.3.0"
+
+
+    implementation 'it.xabaras.android:recyclerview-swipedecorator:1.2.3'
 }

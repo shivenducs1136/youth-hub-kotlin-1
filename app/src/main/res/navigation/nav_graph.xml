@@ -14,6 +14,9 @@
             android:id="@+id/action_homeFragment_to_playlistFragment"
             app:destination="@id/playlistFragment"
             app:popUpTo="@id/playlistFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_videoPlayerFragment"
+            app:destination="@id/videoPlayerFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -56,4 +59,8 @@
             app:destination="@id/playlistFragment"
             app:popUpTo="@id/playlistFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/videoPlayerFragment"
+        android:name="com.example.youthhub.ui.VideoPlayerFragment"
+        android:label="VideoPlayerFragment" />
 </navigation>
