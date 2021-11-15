@@ -1,5 +1,5 @@
 <p align="left">
-	<img width="240" src="https://raw.githubusercontent.com/dsckiet/resources/master/dsckiet-logo.png" />
+	<img width="240" src="https://drive.google.com/uc?export=view&id=1Q-jMna73t3OcGULw_TAi2M786kinOZNZ" />
 	<h2 align="left"> YouthHub </h2>
 	<h4 align="left"> A Youtube based application just for educational purposes. <h4>
 </p>
