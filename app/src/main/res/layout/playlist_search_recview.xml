@@ -15,10 +15,9 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="273dp"
+            android:layout_height="300dp"
             android:background="@drawable/ic_grey_rectangle"
             android:elevation="5dp">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -27,9 +26,10 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="2">
+                    android:layout_weight="2.5">
 
                     <ImageView
+                        android:id="@+id/search_playlist_thumbnail"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="centerCrop"
@@ -54,14 +54,15 @@
                             android:id="@+id/playlist_icon" />
 
                         <TextView
+                            android:id="@+id/search_in_playlist_total_Videos"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="6 Videos"
-                            android:fontFamily="@font/poppins_semibold"
-                            android:textColor="@color/white"
                             android:layout_below="@+id/playlist_icon"
+                            android:layout_centerHorizontal="true"
                             android:layout_marginTop="70dp"
-                            android:layout_centerHorizontal="true" />
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="6 Videos"
+                            android:textColor="@color/white" />
                     </RelativeLayout>
 
                 </RelativeLayout>
@@ -74,23 +75,25 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:paddingBottom="10dp"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:paddingBottom="10dp">
 
                         <LinearLayout
-                            android:layout_marginTop="5dp"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
+                            android:layout_marginTop="5dp"
                             android:layout_weight="1">
 
                             <TextView
+                                android:id="@+id/search_title_iv"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="10dp"
+                                android:autoSizeTextType="uniform"
                                 android:fontFamily="@font/open_sans_bold"
                                 android:text="Basics Of Designing"
                                 android:textColor="@color/black"
-                                android:layout_marginLeft="10dp"
                                 android:textSize="20sp" />
 
                         </LinearLayout>
@@ -102,20 +105,24 @@
                             android:orientation="horizontal">
 
                             <com.google.android.material.card.MaterialCardView
-                                android:layout_width="40dp"
-                                app:cardCornerRadius="20dp"
-                                android:layout_height="40dp"
+                                android:layout_width="30dp"
+                                app:cardCornerRadius="15dp"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="20dp"
                                 android:src="@drawable/profilepic"
-                                android:layout_marginLeft="20dp" />
+                                />
 
                             <TextView
-                                android:layout_width="wrap_content"
+                                android:id="@+id/playlist_channel_name_iv"
+                                android:layout_width="150dp"
                                 android:layout_height="wrap_content"
-                                android:text="Developers"
                                 android:layout_gravity="center_vertical"
-                                android:fontFamily="@font/open_sans_bold"
-                                android:textColor="@color/black"
                                 android:layout_marginLeft="10dp"
+                                android:autoSizeTextType="uniform"
+                                android:fontFamily="@font/open_sans_bold"
+                                android:maxLines="1"
+                                android:text="Developers"
+                                android:textColor="@color/black"
                                 android:textSize="16sp" />
 
                             <RelativeLayout
@@ -124,19 +131,18 @@
                                 android:layout_marginRight="20dp">
 
                                 <ImageView
+                                    android:id="@+id/search_add_btn"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
-                                    android:src="@drawable/ic_add_rectangle"
-                                    android:id="@+id/add_img_playlist_search_recview"
-                                    />
+                                    android:src="@drawable/ic_add_rectangle" />
+
                                 <ImageView
+                                    android:id="@+id/search_added_btn"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
-                                    android:src="@drawable/ic_added_rectangle"
-                                    android:id="@+id/added_img_playlist_search_recview"
-                                    />
+                                    android:src="@drawable/ic_added_rectangle" />
                             </RelativeLayout>
 
                         </LinearLayout>

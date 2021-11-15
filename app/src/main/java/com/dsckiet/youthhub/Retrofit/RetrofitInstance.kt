@@ -7,14 +7,10 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitInstance {
 
-        private val retrofit by lazy {
-            Retrofit.Builder()
-                .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-        }
-    val api : SearchApiRequest by lazy {
-        retrofit.create(SearchApiRequest::class.java)
-    }
+    val retrofit= Retrofit.Builder()
+        .baseUrl(BASE_URL)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+    val api =retrofit.create(SearchApiRequest::class.java)
 
 }

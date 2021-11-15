@@ -51,14 +51,25 @@
 
             </RelativeLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@+id/qwerty"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:id="@+id/playlist_recview"
-                tools:listitem="@layout/playlist_search_recview" />
+                <RelativeLayout
+                    android:layout_below="@+id/qwerty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/idkaid"
+                    >
+
+
+                    <include
+                        android:id="@+id/id"
+                        layout="@layout/playlist_search_recview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="20dp" />
+
+                </RelativeLayout>
+
         </RelativeLayout>
 
     </FrameLayout>

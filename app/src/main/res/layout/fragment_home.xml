@@ -14,7 +14,7 @@
         tools:context=".ui.HomeFragment"
         >
 
-       <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+       <RelativeLayout
            android:layout_width="match_parent"
            android:layout_height="match_parent">
            <RelativeLayout
@@ -22,19 +22,18 @@
                android:layout_height="match_parent">
 
                <RelativeLayout
+                   android:id="@+id/home_topbar"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
-                   android:id="@+id/qwqw"
-                   android:background="@drawable/ic_blur_rectangle"
-                   >
+                   android:background="@drawable/ic_blur_rectangle">
 
                    <ImageView
-                       android:layout_marginTop="10dp"
-                       android:layout_marginBottom="10dp"
                        android:id="@+id/google_logo"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:layout_marginLeft="20dp"
+                       android:layout_marginTop="10dp"
+                       android:layout_marginBottom="10dp"
                        android:src="@drawable/ic_youthhublogo" />
 
                </RelativeLayout>
@@ -59,16 +58,17 @@
                    android:src="@drawable/ic_add_symbol"
                    app:fabSize="normal" />
 
-               <ScrollView
+               <RelativeLayout
                    android:layout_width="match_parent"
                    android:layout_height="match_parent"
-                   android:layout_below="@+id/qwqw"
+                   android:layout_below="@+id/home_topbar"
                    >
                    <RelativeLayout
                        android:layout_width="match_parent"
                        android:layout_height="match_parent"
 
                        >
+
                        <androidx.recyclerview.widget.RecyclerView
                            android:id="@+id/home_recview"
                            android:layout_width="match_parent"
@@ -77,10 +77,10 @@
                            tools:listitem="@layout/playlist_recview" />
                    </RelativeLayout>
 
-               </ScrollView>
+               </RelativeLayout>
 
            </RelativeLayout>
-       </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+       </RelativeLayout>
 
     </FrameLayout>
 </layout>

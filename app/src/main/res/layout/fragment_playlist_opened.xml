@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -10,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.PlaylistOpenedFragment">
-        <ScrollView
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             >
@@ -22,44 +23,48 @@
                     android:id="@+id/playlist_info"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="70dp"
+                    android:layout_marginTop="90dp"
+                    android:background="@drawable/ic_grey_recantgle_not_outline"
                     android:elevation="5dp"
-                    android:orientation="vertical"
-                    android:background="@drawable/ic_grey_recantgle_not_outline">
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
+
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:id="@+id/play_opened_playtitle"
+                            android:layout_width="280dp"
                             android:layout_height="wrap_content"
-                            android:text="Basics of Designing"
-                            android:fontFamily="@font/poppins_semibold"
-                            android:textColor="@color/black"
-                            android:textSize="20sp"
-                            android:layout_marginTop="10dp"
                             android:layout_marginLeft="10dp"
-                            />
+                            android:layout_marginTop="10dp"
+                            android:autoSizeTextType="uniform"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text=""
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            >
+                            android:layout_gravity="center">
+
                             <ImageView
                                 android:layout_width="90dp"
                                 android:layout_height="30dp"
-                                android:src="@drawable/ic_completed"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="10dp"
-                                />
+                                android:src="@drawable/ic_completed" />
                         </RelativeLayout>
 
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -77,6 +82,7 @@
 
 
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -94,6 +100,7 @@
 
 
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -112,20 +119,19 @@
 
                         </LinearLayout>
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
-                        android:paddingBottom="20dp"
                         android:layout_marginTop="20dp"
-                        android:visibility="gone"
-                        >
+                        android:paddingBottom="20dp"
+                        android:visibility="gone">
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/ic_watch_again_btn"
-                            />
+                            android:src="@drawable/ic_watch_again_btn" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -134,25 +140,47 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_below="@+id/playlist_info"
-                    tools:listitem="@layout/video_recview_item"
-                    />
+                    android:id="@+id/playlist_opened_recview"
+                    tools:listitem="@layout/video_recview_item" />
 
             </RelativeLayout>
-        </ScrollView>
+        </RelativeLayout>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="10dp"
             android:paddingTop="20dp"
+            android:paddingBottom="10dp"
             android:background="@drawable/ic_blur_rectangle"
             >
-            <ImageView
-                android:id="@+id/search_back_btn"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="20dp"
-                android:src="@drawable/ic_backbtn" />
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_height="40dp"
+                app:cardCornerRadius="20dp"
+                android:elevation="5dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:padding="5dp"
+                        android:id="@+id/search_back_btn"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_backbtn" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:id="@+id/playlist_opened_progressbar"
+                />
         </RelativeLayout>
 
     </FrameLayout>

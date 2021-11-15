@@ -1,17 +1,15 @@
 package com.dsckiet.youthhub
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentContainerView
 import com.example.youthhub.ui.Continue_With_GoogleFragment
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 
 
@@ -31,7 +29,9 @@ class SplashScreen : AppCompatActivity() {
         if(GoogleSignIn.getLastSignedInAccount(this) == null){
             cont.visibility = View.VISIBLE
             logo.visibility = View.GONE
-            supportFragmentManager.beginTransaction().replace(R.id.sfragmentContainerView,Continue_With_GoogleFragment())
+            supportFragmentManager.beginTransaction().replace(R.id.sfragmentContainerView,
+                Continue_With_GoogleFragment()
+            )
         }
         else
             splashfun()
