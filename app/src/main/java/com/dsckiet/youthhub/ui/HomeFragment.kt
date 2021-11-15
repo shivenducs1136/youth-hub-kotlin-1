@@ -1,7 +1,7 @@
 package com.example.youthhub.ui
 
-import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -73,17 +73,23 @@ class HomeFragment : Fragment() {
                 }
             }
         })
-        val offlinesharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
-        val PlaylistTitle = offlinesharedPref.getString("Playlist_title", "")
-        val PlaylistChannelName = offlinesharedPref.getString("Playlist_channel_name", "")
-        val PlaylistThumbnail = offlinesharedPref.getString("Playlist_ThumbNail", "")
-        val PlaylistTotalVideos = offlinesharedPref.getString("Playlist_No_Of_Videos", "")
+        val offlinesharedPref = arguments
+        val PlaylistTitle = offlinesharedPref?.getString("Playlist_title", "")
+        val PlaylistChannelName = offlinesharedPref?.getString("Playlist_channel_name", "")
+        val PlaylistThumbnail = offlinesharedPref?.getString("Playlist_ThumbNail", "")
+        val PlaylistTotalVideos = offlinesharedPref?.getString("Playlist_No_Of_Videos", "")
         // Pass the Bundel and Insert the Data here
+        if(PlaylistTitle!=null && PlaylistChannelName!=null && PlaylistThumbnail!=null && PlaylistTotalVideos !=null){
+            Log.d("PlaylistTitle",PlaylistTitle.toString())
+            Log.d("PlaylistChannelName",PlaylistChannelName.toString())
+            Log.d("PlaylistThumbnail",PlaylistThumbnail.toString())
+            Log.d("PlaylistTotalVideos",PlaylistTotalVideos.toString())
             if(PlaylistTitle!!.isNotEmpty() && PlaylistChannelName!!.isNotEmpty() && PlaylistThumbnail!!.isNotEmpty()&&PlaylistTotalVideos!!.isNotEmpty() ) {
                 SavedPlaylistviewModel.insertPlaylist(PlaylistEntity(PlaylistTitle,PlaylistThumbnail,PlaylistChannelName,PlaylistTotalVideos,""))
 
-        }
+            }
 
+        }
 
     }
 

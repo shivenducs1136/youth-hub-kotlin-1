@@ -116,16 +116,15 @@ class PlaylistFragment : Fragment() {
                           binding.id.searchAddBtn.setOnClickListener {
                               binding.id.searchAddedBtn.visibility = View.VISIBLE
                               binding.id.searchAddBtn.visibility = View.GONE
-                              val offlinesharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return@setOnClickListener
-                              with (offlinesharedPref.edit()) {
-                                  putString("Playlist_title", Playlist_title)
-                                  putString("Playlist_channel_name",Playlist_channel_name)
-                                  putString("Playlist_No_Of_Videos", no_of_vid)
-                                  putString("Playlist_ThumbNail", Playlist_ThumbNail)
+                              val bundle = Bundle()
+
+                              bundle.putString("Playlist_title", Playlist_title)
+                              bundle.putString("Playlist_channel_name",Playlist_channel_name)
+                              bundle.putString("Playlist_No_Of_Videos", no_of_vid)
+                              bundle.putString("Playlist_ThumbNail", Playlist_ThumbNail)
+                                findNavController().navigate(R.id.action_playlistFragment_to_homeFragment,bundle)
                                   Toast.makeText(requireContext(), "$Playlist_title added", Toast.LENGTH_LONG).show()
-                                  apply()
-                              }
-                          }
+                            }
                         }
 
                     })

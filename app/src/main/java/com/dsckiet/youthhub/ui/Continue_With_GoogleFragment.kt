@@ -117,7 +117,7 @@ class Continue_With_GoogleFragment : Fragment() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(ContentValues.TAG, "signInWithCredential:success")
                     val user = auth.currentUser
-                    Toast.makeText(requireContext(),"Signing In as ${GoogleSignIn.getLastSignedInAccount(requireContext()).displayName}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(),"SigningIn as ${GoogleSignIn.getLastSignedInAccount(requireContext()).displayName}", Toast.LENGTH_SHORT).show()
                     val i = Intent(requireActivity(),MainActivity::class.java)
                     startActivity(i)
                     requireActivity().finish()
