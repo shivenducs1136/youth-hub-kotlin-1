@@ -78,14 +78,15 @@ class HomeFragment : Fragment() {
         val PlaylistChannelName = offlinesharedPref?.getString("Playlist_channel_name", "")
         val PlaylistThumbnail = offlinesharedPref?.getString("Playlist_ThumbNail", "")
         val PlaylistTotalVideos = offlinesharedPref?.getString("Playlist_No_Of_Videos", "")
+        val Play_ID = offlinesharedPref?.getString("Playlist__ID", "")
         // Pass the Bundel and Insert the Data here
         if(PlaylistTitle!=null && PlaylistChannelName!=null && PlaylistThumbnail!=null && PlaylistTotalVideos !=null){
             Log.d("PlaylistTitle",PlaylistTitle.toString())
             Log.d("PlaylistChannelName",PlaylistChannelName.toString())
             Log.d("PlaylistThumbnail",PlaylistThumbnail.toString())
             Log.d("PlaylistTotalVideos",PlaylistTotalVideos.toString())
-            if(PlaylistTitle!!.isNotEmpty() && PlaylistChannelName!!.isNotEmpty() && PlaylistThumbnail!!.isNotEmpty()&&PlaylistTotalVideos!!.isNotEmpty() ) {
-                SavedPlaylistviewModel.insertPlaylist(PlaylistEntity(PlaylistTitle,PlaylistThumbnail,PlaylistChannelName,PlaylistTotalVideos,""))
+            if(PlaylistTitle!!.isNotEmpty() && PlaylistChannelName!!.isNotEmpty() && PlaylistThumbnail!!.isNotEmpty()&&PlaylistTotalVideos!!.isNotEmpty()&&!Play_ID!!.isNullOrEmpty() ) {
+                SavedPlaylistviewModel.insertPlaylist(PlaylistEntity(PlaylistTitle,PlaylistThumbnail,PlaylistChannelName,PlaylistTotalVideos,"",Play_ID))
 
             }
 

@@ -10,7 +10,8 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.PlaylistOpenedFragment">
+        tools:context=".PlaylistVideoListFragment">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -24,7 +25,7 @@
                     android:layout_height="match_parent">
 
                     <LinearLayout
-                        android:id="@+id/playlist_info"
+                        android:id="@+id/playlistvideolist_info"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="90dp"
@@ -38,7 +39,7 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/play_opened_playtitle"
+                                android:id="@+id/playlistvideolist_playtitle"
                                 android:layout_width="280dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
@@ -143,50 +144,53 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_below="@+id/playlist_info"
-                        android:id="@+id/playlist_opened_recview"
+                        android:layout_below="@+id/playlistvideolist_info"
+                        android:id="@+id/playlistvideolist_recview"
                         tools:listitem="@layout/video_recview_item" />
 
                 </RelativeLayout>
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="20dp"
-                android:paddingBottom="10dp"
                 android:background="@drawable/ic_blur_rectangle"
-                >
+                android:paddingTop="20dp"
+                android:paddingBottom="10dp">
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="40dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_height="40dp"
-                    app:cardCornerRadius="20dp"
-                    android:elevation="5dp"
-                    >
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
 
-                        <ImageView
-                            android:padding="5dp"
-                            android:id="@+id/search_back_btn"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:layout_centerInParent="true"
-                            android:src="@drawable/ic_backbtn" />
-                    </RelativeLayout>
-                </androidx.cardview.widget.CardView>
                 <ProgressBar
+                    android:id="@+id/playlistvideolist_progressbar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true"
-                    android:id="@+id/playlist_opened_progressbar"
-                    />
+                    android:layout_centerHorizontal="true" />
             </RelativeLayout>
+            <androidx.cardview.widget.CardView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:elevation="5dp"
+                app:cardCornerRadius="20dp"
+                android:layout_marginTop="20dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/playlistvideolist_back_btn"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerInParent="true"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_backbtn" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
 
         </RelativeLayout>
+
     </FrameLayout>
 </layout>

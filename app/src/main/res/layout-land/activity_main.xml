@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+
+<fragment
+            android:id="@+id/fragment_container"
+            android:layout_above="@+id/bottom_navigation_view_linear"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nav_graph"
+            />
+
+
+        <com.gauravk.bubblenavigation.BubbleNavigationLinearView
+            android:id="@+id/bottom_navigation_view_linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/ic_rectangle_white"
+            android:elevation="8dp"
+            android:orientation="horizontal"
+            android:padding="12dp"
+            android:visibility="gone"
+            app:menu="@menu/menu_item"
+            app:navGraph="@navigation/nav_graph">
+
+            <com.gauravk.bubblenavigation.BubbleToggleView
+                android:id="@+id/l_item_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                app:bt_active="true"
+                app:bt_colorActive="#8279DA"
+                app:bt_colorInactive="@color/grey_active"
+                app:bt_icon="@drawable/ic_btm_icon_4"
+                app:bt_padding="10dp"
+                app:bt_shape="@drawable/ic_rectangle_btm"
+                app:bt_title="Home"
+                app:bt_titlePadding="10dp" />
+
+            <com.gauravk.bubblenavigation.BubbleToggleView
+                android:id="@+id/l_item_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+
+                app:bt_active="true"
+                app:bt_colorActive="#8279DA"
+                app:bt_colorInactive="@color/grey_active"
+                app:bt_icon="@drawable/ic_btm_icon_2"
+                app:bt_padding="10dp"
+                app:bt_shape="@drawable/ic_rectangle_btm"
+                app:bt_title="Search"
+                app:bt_titlePadding="10dp" />
+
+            <com.gauravk.bubblenavigation.BubbleToggleView
+                android:id="@+id/l_item_playlist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:bt_active="true"
+                app:bt_colorActive="#8279DA"
+                app:bt_colorInactive="#AAAAAA"
+                app:bt_icon="@drawable/ic_btm_icon_1"
+                app:bt_padding="10dp"
+                app:bt_shape="@drawable/ic_rectangle_btm"
+                app:bt_title="Subscription"
+                app:bt_titlePadding="10dp" />
+
+            <com.gauravk.bubblenavigation.BubbleToggleView
+                android:id="@+id/l_item_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                app:bt_active="true"
+                app:bt_colorActive="#8279DA"
+                app:bt_colorInactive="#AAAAAA"
+                app:bt_icon="@drawable/ic_btm_icon_3"
+                app:bt_padding="10dp"
+                app:bt_shape="@drawable/ic_rectangle_btm"
+                app:bt_title="Profile"
+                app:bt_titlePadding="10dp" />
+
+            <!-- Add more child items here - max upto 5 -->
+
+        </com.gauravk.bubblenavigation.BubbleNavigationLinearView>
+
+    </RelativeLayout>
+</layout>

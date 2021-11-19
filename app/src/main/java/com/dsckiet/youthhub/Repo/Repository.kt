@@ -25,4 +25,5 @@ class Repository(var context: Context) {
     suspend fun getVideoinfo(part: String,id:String) :Response<VideoDataClass>{
         return RetrofitInstance.api.getVideoinfo(part,id)
     }
+
 }

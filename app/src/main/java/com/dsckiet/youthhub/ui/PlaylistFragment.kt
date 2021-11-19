@@ -122,6 +122,7 @@ class PlaylistFragment : Fragment() {
                               bundle.putString("Playlist_channel_name",Playlist_channel_name)
                               bundle.putString("Playlist_No_Of_Videos", no_of_vid)
                               bundle.putString("Playlist_ThumbNail", Playlist_ThumbNail)
+                              bundle.putString("Playlist__ID",id)
                                 findNavController().navigate(R.id.action_playlistFragment_to_homeFragment,bundle)
                                   Toast.makeText(requireContext(), "$Playlist_title added", Toast.LENGTH_LONG).show()
                             }

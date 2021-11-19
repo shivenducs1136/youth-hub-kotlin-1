@@ -3,6 +3,7 @@ package com.dsckiet.youthhub.Adapters
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.Bundle
 import android.os.Parcel
 import android.os.Parcelable
 import android.util.Log
@@ -14,6 +15,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.*
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.dsckiet.youthhub.Adapters.PlaylistItemAdapter.PlaylistItemViewHolder
@@ -55,6 +57,16 @@ class PlaylistItemAdapter() : Adapter<PlaylistItemViewHolder>(), Parcelable {
         Picasso.with(context)
             .load(collect?.snippet?.thumbnails?.standard?.url)
             .into(holder.itemthumbnail)
+        holder.itemView.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("playlistvidelist_videoid",collect?.snippet?.resourceId.videoId)
+            bundle.putString("playlistvidelist_channel_name",collect?.snippet?.channelTitle)
+            bundle.putString("playlistvidelist_video_title",collect?.snippet?.title)
+            bundle.putString("playlistvidelist_description",collect?.snippet?.description)
+            bundle.putString("playlistvidelist_published_at",collect?.snippet?.publishedAt)
+
+            it.findNavController().navigate(R.id.action_playlistVideoListFragment_to_videoPlayerFragment,bundle)
+        }
 //        Log.e("VIDEOID",collect?.snippet?.resourceId?.videoId.toString())
 //        viewmodel.getVideoinfo("contentDetails", collect?.snippet?.resourceId?.videoId.toString())
 //        viewmodel.videoinfo.observeForever {

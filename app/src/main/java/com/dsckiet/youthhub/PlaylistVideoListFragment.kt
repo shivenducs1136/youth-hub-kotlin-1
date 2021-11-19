@@ -1,4 +1,4 @@
-package com.example.youthhub.ui
+package com.dsckiet.youthhub
 
 import android.content.Context
 import android.os.Bundle
@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AbsListView
-import android.widget.AbsListView.OnScrollListener
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -16,58 +15,50 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dsckiet.youthhub.Adapters.PlaylistItemAdapter
-import com.dsckiet.youthhub.Adapters.PlaylistItemAdapter.PlaylistItemViewHolder
-import com.dsckiet.youthhub.R
 import com.dsckiet.youthhub.ViewModel.PlaylistViewModel
 import com.dsckiet.youthhub.ViewModel.PlaylistViewModelFactory
-import com.dsckiet.youthhub.databinding.FragmentPlaylistOpenedBinding
+import com.dsckiet.youthhub.databinding.FragmentPlaylistVideoListBinding
 import com.dsckiet.youthhub.model.Item
 import com.example.youthhub.Repo.Repository
 
 
-class PlaylistOpenedFragment : Fragment() {
+class PlaylistVideoListFragment : Fragment() {
 
-    private lateinit var binding: FragmentPlaylistOpenedBinding
-    private lateinit var playlistViewModel: PlaylistViewModel
-    private lateinit var playlistItemAdapter: PlaylistItemAdapter
+    private lateinit var  binding: FragmentPlaylistVideoListBinding
+    private lateinit var  PlaylistID:String
+    private lateinit var playlistViewModel:PlaylistViewModel
+    private lateinit var playlistItemAdapter:PlaylistItemAdapter
+    lateinit var manager: LinearLayoutManager
+    var pageToken = ""
     var isScrolling:Boolean = false
     var scrolledoutitems : Int = 0
+    var itemsy : List<Item> = ArrayList()
     var currentitems:Int = 0
     var totalitems: Int =0
-    lateinit var recyclerView: RecyclerView
-    var pageToken = ""
-    var id = ""
-    lateinit var manager: LinearLayoutManager
-    var itemsy : List<Item> = ArrayList()
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_playlist_opened,container,false)
+        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_playlist_video_list,container,false)
         return binding.root
-
-
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.playlistOpenedProgressbar.visibility = View.GONE
+        val bundle = arguments
         manager = LinearLayoutManager(requireContext())
-        recyclerView =  binding.playlistOpenedRecview
-//        playlistItemAdapter = PlaylistItemAdapter(requireContext(),itemsy)
-//        recyclerView.adapter = playlistItemAdapter
-        binding.searchBackBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_playlistOpenedFragment_to_playlistFragment)
+        PlaylistID = bundle!!.getString("PlaylistVideoList_PlaylistID").toString()
+        binding.playlistvideolistBackBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_playlistVideoListFragment_to_homeFragment)
         }
-        viewvideosofplaylist()
-        recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener(){
+
+        getplaylistitem()
+        binding.playlistvideolistRecview.addOnScrollListener(object : RecyclerView.OnScrollListener(){
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
                 if(newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL){
                     isScrolling = true
-                    binding.playlistInfo.visibility = View.GONE
+                    binding.playlistvideolistInfo.visibility = View.GONE
                 }
             }
 
@@ -79,34 +70,32 @@ class PlaylistOpenedFragment : Fragment() {
 
                 if(isScrolling && (currentitems + scrolledoutitems == totalitems)){
                     isScrolling = false
-                    binding.playlistOpenedProgressbar.visibility = View.VISIBLE
-                    viewvideosofplaylist()
+                    binding.playlistvideolistProgressbar.visibility = View.VISIBLE
+                    getplaylistitem()
 //                    fetchdata()
                 }
             }
         })
+
     }
 
-    private fun viewvideosofplaylist() {
-
-        val repository= Repository(this.requireContext())
-        val vmf= PlaylistViewModelFactory(repository)
+    private fun getplaylistitem() {
+        val repo = Repository(requireContext())
+        val vmf= PlaylistViewModelFactory(repo)
         playlistViewModel = ViewModelProvider(this,vmf).get(PlaylistViewModel::class.java)
         playlistItemAdapter = PlaylistItemAdapter(requireContext(),itemsy)
-        recyclerView.adapter = playlistItemAdapter
-        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE) ?: return
-         id = sharedPref.getString("PlaylistId", "").toString()
-        Log.e("ID is : ",id)
+        binding.playlistvideolistRecview.adapter = playlistItemAdapter
+        Log.e("ID is : ",PlaylistID)
         if(pageToken == null){
             pageToken = ""
         }
-        playlistViewModel.getPlaylistItem("snippet",id,pageToken)
-        Log.e("PlaylistOPFRAGMENTID" , id)
-        playlistViewModel.getPlaylist("snippet",id)
+        playlistViewModel.getPlaylistItem("snippet",PlaylistID,pageToken)
+        Log.e("PlaylistOPFRAGMENTID" , PlaylistID)
+        playlistViewModel.getPlaylist("snippet",PlaylistID)
 
         playlistViewModel.playlist.observe(viewLifecycleOwner, Observer {
             if(it.isSuccessful){
-                binding.playOpenedPlaytitle.text = it.body()?.items?.get(0)?.snippet?.title
+                binding.playlistvideolistPlaytitle.text = it.body()?.items?.get(0)?.snippet?.title
             }
         })
 
@@ -117,35 +106,14 @@ class PlaylistOpenedFragment : Fragment() {
                 playlistItemAdapter.playlistitemsetStateWiseTracker(itemsy)
                 pageToken = it.body()?.nextPageToken.toString()
             }
-            binding.playlistOpenedProgressbar.visibility = View.GONE
+            binding.playlistvideolistProgressbar.visibility = View.GONE
             Log.d("BOLT","success"+it.toString())
 
         })
-        recyclerView.layoutManager = manager
-        recyclerView.adapter = playlistItemAdapter
+        binding.playlistvideolistRecview.layoutManager = manager
+        binding.playlistvideolistRecview.adapter = playlistItemAdapter
 
 
     }
-
-    private fun fetchdata() {
-        playlistViewModel.getPlaylistItem("snippet",id,pageToken)
-        playlistViewModel.playlistitem.observe(viewLifecycleOwner, Observer {
-
-            if (it.isSuccessful){
-                playlistItemAdapter.playlistitemsetStateWiseTracker(it.body()?.items!!)
-                pageToken = it.body()?.nextPageToken.toString()
-            }
-
-
-//            progressbar.visibility= View.GONE
-            Log.d("Page 2","success"+it.toString())
-
-        })
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.adapter = playlistItemAdapter
-
-
-    }
-
 
 }

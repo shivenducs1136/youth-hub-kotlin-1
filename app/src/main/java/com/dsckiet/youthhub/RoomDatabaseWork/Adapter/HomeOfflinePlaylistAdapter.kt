@@ -1,6 +1,7 @@
 package com.dsckiet.youthhub.RoomDatabaseWork.Adapter
 
 import android.content.Context
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,7 +41,11 @@ class HomeOfflinePlaylistAdapter (val context: Context, val listener: HomeFragme
         Picasso.with(context)
             .load(currentPlaylist.Playlist_Thumbnail)
             .into(holder.playlist_thumbnail)
-
+        holder.itemView.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putString("PlaylistVideoList_PlaylistID",currentPlaylist.Playlist_ID)
+            it.findNavController().navigate(R.id.action_homeFragment_to_playlistVideoListFragment,bundle)
+        }
         /* holder.itemView.setOnClickListener {
              val name = currentPlaylist.name
              val tagline = currentPlaylist.tagline

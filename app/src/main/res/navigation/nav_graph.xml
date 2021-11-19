@@ -15,8 +15,8 @@
             app:destination="@id/playlistFragment"
             app:popUpTo="@id/playlistFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_videoPlayerFragment"
-            app:destination="@id/videoPlayerFragment" />
+            android:id="@+id/action_homeFragment_to_playlistVideoListFragment"
+            app:destination="@id/playlistVideoListFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -62,5 +62,23 @@
     <fragment
         android:id="@+id/videoPlayerFragment"
         android:name="com.example.youthhub.ui.VideoPlayerFragment"
-        android:label="VideoPlayerFragment" />
+        android:label="VideoPlayerFragment" >
+        <action
+            android:id="@+id/action_videoPlayerFragment_to_playlistVideoListFragment"
+            app:destination="@id/playlistVideoListFragment"
+            app:popUpTo="@id/playlistVideoListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/playlistVideoListFragment"
+        android:name="com.dsckiet.youthhub.PlaylistVideoListFragment"
+        android:label="fragment_playlist_video_list"
+        tools:layout="@layout/fragment_playlist_video_list" >
+        <action
+            android:id="@+id/action_playlistVideoListFragment_to_videoPlayerFragment"
+            app:destination="@id/videoPlayerFragment" />
+        <action
+            android:id="@+id/action_playlistVideoListFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment" />
+    </fragment>
 </navigation>
