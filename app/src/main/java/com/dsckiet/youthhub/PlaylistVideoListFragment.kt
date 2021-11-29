@@ -32,19 +32,19 @@ class PlaylistVideoListFragment : Fragment() {
     var pageToken = ""
     var isScrolling:Boolean = false
     var scrolledoutitems : Int = 0
-    var itemsy : List<Item> = ArrayList()
+    var itemsy : ArrayList<Item> = ArrayList()
+    var itemsyl : ArrayList<Item> = ArrayList()
     var currentitems:Int = 0
     var totalitems: Int =0
+    var x = 1
+    var key : Int =  0
+    var hmap : HashMap<Int,String> = HashMap()
+    var isPageAvailable : Boolean = true
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_playlist_video_list,container,false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         val bundle = arguments
         manager = LinearLayoutManager(requireContext())
         PlaylistID = bundle!!.getString("PlaylistVideoList_PlaylistID").toString()
@@ -52,13 +52,12 @@ class PlaylistVideoListFragment : Fragment() {
             findNavController().navigate(R.id.action_playlistVideoListFragment_to_homeFragment)
         }
 
-        getplaylistitem()
         binding.playlistvideolistRecview.addOnScrollListener(object : RecyclerView.OnScrollListener(){
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
                 if(newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL){
                     isScrolling = true
-                    binding.playlistvideolistInfo.visibility = View.GONE
+//                    binding.playlistvideolistInfo.visibility = View.GONE
                 }
             }
 
@@ -66,16 +65,26 @@ class PlaylistVideoListFragment : Fragment() {
                 super.onScrolled(recyclerView, dx, dy)
                 currentitems = recyclerView.layoutManager!!.childCount
                 totalitems = recyclerView.layoutManager!!.itemCount
-                scrolledoutitems = (recyclerView.layoutManager as LinearLayoutManager?)!!.findFirstVisibleItemPosition()
+                scrolledoutitems = (recyclerView.layoutManager as LinearLayoutManager?)!!.findLastVisibleItemPosition()
 
-                if(isScrolling && (currentitems + scrolledoutitems == totalitems)){
+                if(isScrolling && (currentitems + scrolledoutitems == totalitems)&& isPageAvailable){
                     isScrolling = false
-                    binding.playlistvideolistProgressbar.visibility = View.VISIBLE
+//                    binding.playlistvideolistProgressbar.visibility = View.VISIBLE
                     getplaylistitem()
 //                    fetchdata()
                 }
             }
         })
+        getplaylistitem()
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+//        getplaylistitem()
 
     }
 
@@ -102,13 +111,28 @@ class PlaylistVideoListFragment : Fragment() {
         playlistViewModel.playlistitem.observe(viewLifecycleOwner, Observer {
 
             if (it.isSuccessful){
-                itemsy = itemsy + (it.body()?.items!!)
-                playlistItemAdapter.playlistitemsetStateWiseTracker(itemsy)
+
+//                itemsy.addAll(it.body()?.items!!)
+                Log.e("RESULT", it.body()?.nextPageToken.toString())
+               if(!hmap.containsValue(it.body()?.nextPageToken.toString()))
+                   {
+                       itemsy.addAll(it.body()?.items!!)
+                       playlistItemAdapter.playlistitemsetStateWiseTracker(itemsy)
+               }
+
+
                 pageToken = it.body()?.nextPageToken.toString()
+                if(pageToken.isNullOrEmpty()){
+                    isPageAvailable = false
+                }else {
+                    if(!hmap.containsValue(it.body()?.nextPageToken.toString())) {
+                        hmap.put(key, it.body()?.nextPageToken.toString())
+                        key++
+                    }
+                }
             }
             binding.playlistvideolistProgressbar.visibility = View.GONE
             Log.d("BOLT","success"+it.toString())
-
         })
         binding.playlistvideolistRecview.layoutManager = manager
         binding.playlistvideolistRecview.adapter = playlistItemAdapter

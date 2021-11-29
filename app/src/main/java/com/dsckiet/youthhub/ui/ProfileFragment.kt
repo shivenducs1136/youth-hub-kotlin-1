@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
 import com.dsckiet.youthhub.R
 import com.dsckiet.youthhub.databinding.FragmentProfileBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -38,12 +39,11 @@ class ProfileFragment : Fragment() {
                 .load(signInAccount.photoUrl)
                 .into(binding.profilePic)
             binding.userEmail.text = signInAccount.email
+            binding.userEmail.text="ufhdni"
         }
-
-
-
-
-
+    binding.settingsFab.setOnClickListener {
+        findNavController().navigate(R.id.action_profileFragment_to_settingsFragment)
+       }
     }
 
 }

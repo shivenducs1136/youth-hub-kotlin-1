@@ -93,6 +93,7 @@ class PlaylistItemAdapter() : Adapter<PlaylistItemViewHolder>(), Parcelable {
     }
 
     override fun getItemCount(): Int {
+        Log.e("itemcount",collecty.size.toString())
         return collecty.size
     }
 

@@ -25,6 +25,14 @@ class VideoPlayerFragment : Fragment() {
     private  var video_title:String =""
     private lateinit var published_at:String
     private lateinit var description:String
+
+
+//    override fun onSaveInstanceState(outState: Bundle) {
+//        super.onSaveInstanceState(outState)
+//        outState.putInt("data", yourdata)
+//    }
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -69,10 +77,11 @@ class VideoPlayerFragment : Fragment() {
         }
         youTubePlayerView.addYouTubePlayerListener(object : AbstractYouTubePlayerListener() {
             override fun onReady(youTubePlayer: YouTubePlayer) {
-                youTubePlayerView.getPlayerUiController();
+                youTubePlayerView.getPlayerUiController()
                 val videoId = "${videoID}" //change according to your need
                 youTubePlayer.play()
                 youTubePlayer.cueVideo(videoId, 0F)
+                youTubePlayerView.getPlayerUiController().showCurrentTime(true)
             }
         })
     }
